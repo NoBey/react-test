@@ -7,18 +7,19 @@ module.exports = {
     filename: "./build/bundle.js"
   },
   plugins: [
-  new HtmlwebpackPlugin({
-    title: 'Hello World app',
-    template: './tmp-index.html'
-  })
-],
+    new HtmlwebpackPlugin({
+      title: 'Hello World app',
+      template: './tmp-index.html',
+
+    })
+  ],
+  eslint: {
+  configFile: './.eslintrc'
+},
   module: {
     loaders: [{
       test: /\.css$/,
       loader: "style!css"
-    }, {
-      test: /\.js/,
-      loader: 'jsx-loader?harmony'
     }, {
       test: /\.js/,
       exclude: /(node_modules|bower_components)/,
@@ -26,6 +27,10 @@ module.exports = {
       query: {
         presets: ['react', 'es2015']
       }
+    }, {
+      test: /\.js$/,
+      exclude: /node_modules/,
+      loader: 'eslint-loader'
     }]
   }
 }
