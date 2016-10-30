@@ -40,6 +40,6 @@
   },
   "homepage": "https://github.com/NoBey/react-test#readme",
   "pre-commit": [
-    "npm run lint"
+    "lint"
   ]
 }
